@@ -8,13 +8,13 @@ public class DateFormat {
 	public static String date(int year, int month, int day, char type) {
 		String date = "";
 		if (type=='b') {
-			date = String.format("%04d/%02d/%02d", year, month, day);
+			date = String.format("%04d%c%02d%c%02d", year, type, month, type, day);
 		}
 		if (type=='l') {
-			date = String.format("%02d/%02d/%04d", day, month, year);
+			date = String.format("%02d%c%02d%c%04d", day, type, month, type, year);
 		}
 		if (type=='m') {
-			date = String.format("%02d/%02d/%04d", month, day, year);
+			date = String.format("%02d%c%02d%c%04d", month, type, day, type, year);
 		}
 		return date;
 	}

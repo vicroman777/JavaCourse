@@ -7,7 +7,7 @@ public class DateFormat2 {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		date d = new date(1997, 05, 02, 'l');
+		date d = new date(1997, 05, 02, '/', 'l');
 		System.out.println(d.toString());
 	}
 
@@ -18,8 +18,9 @@ public class DateFormat2 {
 	 int month;
 	 int day;
 	 char type;
+	 char punctuation;
 	 
-	public date(int year, int month, int day, char type) {
+	public date(int year, int month, int day, char punctuation, char type) {
 		super();
 		this.year = year;
 		this.month = month;
@@ -41,6 +42,25 @@ public class DateFormat2 {
 	
 	public void setType(char type) {
 		this.type = type;
+	}
+	
+	public String getDate(boolean fullYear) {
+		switch (this.type) {
+		case 'b':	
+			if (fullYear) {
+			return String.format("%d/%d/%d", year, month, day);}
+			else {String.format("%d/%d/%2d", year, month, day);};
+		case 'l':
+			if (fullYear) {
+			return String.format("%d/%d/%d", day, month, year);}
+			else {String.format("%d/%d/%2d", year, month, day);};
+		case 'm':
+			if (fullYear) {
+			return String.format("%d/%d/%d", month, day, year);}
+			else {String.format("%d/%d/%2d", month, day, year);};
+		
+		default: return "";
+		} 
 	}
 	
 	public String toString() {
